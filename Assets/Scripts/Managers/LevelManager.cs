@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LevelManager : MonoBehaviour
 {
+
+    public MeshRenderer blue;
+    public MeshRenderer green;
+    public MeshRenderer orange;
+    public MeshRenderer purple;
+    public MeshRenderer red;
+
+    [Header ("Transforms")]
     public Transform cubes;
     public Transform solvedCubes;
 
     public List<GameObject> CubesList = new List<GameObject>();
     public List<GameObject> SolvedCubesList = new List<GameObject>();
 
+    GameManager gameManager;
+
     bool isCompleted;
     bool[] check;
+
 
     void AddDescendantsWithTag(Transform parent, string tag, List<GameObject> list)
     {
@@ -28,6 +40,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         AddDescendantsWithTag(cubes, "Cubes", CubesList);
         AddDescendantsWithTag(solvedCubes, "SolvedCubes", SolvedCubesList);
         check = new bool[CubesList.Count];
@@ -43,15 +57,29 @@ public class LevelManager : MonoBehaviour
             {
                 check[i] = true;
             }
+            else
+            {
+                check[i] = false;
+            }
 
         }
 
         if (CheckColors())
         {
-            Debug.Log("success");
+            StartCoroutine(ControlPoint());
         }
 
     }
+
+    IEnumerator ControlPoint()
+    {
+        yield return new WaitForSeconds(1f);
+        if (CheckColors())
+        {
+            gameManager.NextLevel();
+        }
+    }
+    
 
     bool CheckColors()
     {
@@ -62,6 +90,7 @@ public class LevelManager : MonoBehaviour
             {
                 return false;
             }
+            
         }
 
         return true;
