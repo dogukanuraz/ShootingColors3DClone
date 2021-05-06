@@ -10,10 +10,10 @@ public class CameraPosition : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = target.transform.position + offset;
-        if (target.tag == "Cubes")
-        {
-            transform.LookAt(target);
-        }
+        //if (target.tag == "Cubes")
+        //{
+        //    transform.LookAt(target);
+        //}
         
     }
 }

@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public MeshRenderer purple;
     public MeshRenderer red;
 
-    [Header ("Transforms")]
+    [Header("Transforms")]
     public Transform cubes;
     public Transform solvedCubes;
 
@@ -49,22 +49,25 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-
-        for (int i = 0; i < CubesList.Count; i++)
+        if (GameManager.isStarted)
         {
-
-            if (CubesList[i].GetComponent<MeshRenderer>().material.color == SolvedCubesList[i].GetComponent<MeshRenderer>().material.color)
+            for (int i = 0; i < CubesList.Count; i++)
             {
-                check[i] = true;
-            }
-            else
-            {
-                check[i] = false;
-            }
 
+                if (CubesList[i].GetComponent<MeshRenderer>().material.color == SolvedCubesList[i].GetComponent<MeshRenderer>().material.color)
+                {
+                    check[i] = true;
+                }
+                else
+                {
+                    check[i] = false;
+                }
+
+            }
         }
 
-        if (CheckColors())
+
+        if (CheckColors() && GameManager.isStarted)
         {
             StartCoroutine(ControlPoint());
         }
@@ -73,13 +76,16 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator ControlPoint()
     {
+
         yield return new WaitForSeconds(1f);
         if (CheckColors())
         {
             gameManager.NextLevel();
         }
+
+
     }
-    
+
 
     bool CheckColors()
     {
@@ -90,10 +96,9 @@ public class LevelManager : MonoBehaviour
             {
                 return false;
             }
-            
         }
-
         return true;
+
     }
 
 }

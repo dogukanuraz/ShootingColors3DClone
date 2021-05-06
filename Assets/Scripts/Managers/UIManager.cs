@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         menuUI.SetActive(false);
         ActivateInGame();
+        GameManager.isStarted = true;
     }
     void ActivateInGame()
     {
