@@ -60,6 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonBall: {fileID: 8172872936318594866, guid: 8afc35d96778e264c8eb96ce586b53a5,
     type: 3}
+  select:
+    colorStatu: 0
 --- !u!1 &4857090598461825665
 GameObject:
   m_ObjectHideFlags: 0

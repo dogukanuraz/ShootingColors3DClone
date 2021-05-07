@@ -14,14 +14,14 @@ public enum ColorStatu
 }
 
 [System.Serializable]
-public class Color
+public class SelectColor
 {
     public ColorStatu colorStatu;
 }
 
 public class CubeColor : MonoBehaviour
 {
-    public Color color;
+    public SelectColor color;
     LevelManager levelManager;
 
     private void Start()

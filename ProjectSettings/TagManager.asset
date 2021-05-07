@@ -7,6 +7,7 @@ TagManager:
   - Cannon
   - Cubes
   - SolvedCubes
+  - Ball
   layers:
   - Default
   - TransparentFX
