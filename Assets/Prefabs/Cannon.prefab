@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2283195584743514866}
   - component: {fileID: 7306610217262921800}
   - component: {fileID: 3517139367598126199}
+  - component: {fileID: -8134014805401353038}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Cannon
@@ -60,8 +61,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonBall: {fileID: 8172872936318594866, guid: 8afc35d96778e264c8eb96ce586b53a5,
     type: 3}
-  select:
-    colorStatu: 0
+--- !u!114 &-8134014805401353038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75281754544154647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c56e3fbf767b6d449d8bbe1430fdc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4857090598461825665
 GameObject:
   m_ObjectHideFlags: 0

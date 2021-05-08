@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 595869933}
-  offset: {x: 0.5, y: 6, z: 0}
+  offset: {x: 0.5, y: 6.5, z: 0}
 --- !u!1 &1052658479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1151752005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260009211}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ExtraUI, Assembly-CSharp
         m_MethodName: CurrentValue
         m_Mode: 1
@@ -1316,7 +1316,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1901613961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1260009211
+--- !u!114 &1260009216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca179e4a29b2b243b39ec3fd5db60f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterDropdown: {fileID: 1151752006}
+  shooterDropdown: {fileID: 0}
 --- !u!1 &1308556440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1797,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1260009211}
+      objectReference: {fileID: 1260009216}
     - target: {fileID: 3830864036664781049, guid: f9d1547ccde169646b4bd1bd3eb81eb7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState

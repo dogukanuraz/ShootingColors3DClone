@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject solvedCubeParent;
 
     LevelManager levelManager;
+    Color cannonColor;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class LevelGenerator : MonoBehaviour
 
         for (float j = -0.5f; j < 5f; j += 0.5f)
         {
-
+            var colorStatu = (ColorStatu)Random.Range(1, 4);
             GameObject blankCube = Instantiate(cube, transform);
             blankCube.GetComponent<CubeColor>().color.colorStatu = ColorStatu.BLANK;
             blankCube.transform.parent = cubeParent.transform;
@@ -31,13 +32,19 @@ public class LevelGenerator : MonoBehaviour
 
 
             GameObject puzzleCube = Instantiate(cube, transform);
-            //puzzleCube.GetComponent<MeshRenderer>().sharedMaterial.color = levelManager.blue.sharedMaterial.color;
-            puzzleCube.GetComponent<CubeColor>().color.colorStatu = ColorStatu.BLUE;
+            //puzzleCube.GetComponent<MeshRenderer>().sharedMaterial = levelManager.blue.sharedMaterial;
+            puzzleCube.GetComponent<CubeColor>().color.colorStatu = colorStatu;
             puzzleCube.transform.parent = solvedCubeParent.transform;
             puzzleCube.transform.localPosition = new Vector3(0, 0, j);
 
+            GameObject generetedCannon = Instantiate(cannon, transform);
+            generetedCannon.GetComponent<Cannon>().color.colorStatu = colorStatu;
+            generetedCannon.transform.parent = cubeParent.transform;
+            generetedCannon.transform.localPosition = new Vector3(1, 0, j);
+            generetedCannon.transform.Rotate(0f, 270f, 0f);
 
 
+            
             cubeSize++;
 
             if (cubeSize == value)
@@ -46,32 +53,36 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        
 
 
     }
-    public void GenerateCannon(int value)
-    {
-        int cannonSize = 0;
+
+    //public void GenerateCannon(int value, Material material)
+    //{
+    //    Debug.Log("Çalýþýyor");
+    //    int cannonSize = 0;
 
 
-        for (float j = -0.5f; j < 3f; j += 0.5f)
-        {
-            GameObject generetedCannon = Instantiate(cannon, transform);
-            generetedCannon.transform.parent = cubeParent.transform;
+    //    for (float j = -0.5f; j < 3f; j += 0.5f)
+    //    {
+    //        GameObject generetedCannon = Instantiate(cannon, transform);
+    //        generetedCannon.transform.parent = cubeParent.transform;
+    //        generetedCannon.GetComponentInChildren<MeshRenderer>().material = material;
 
-            generetedCannon.transform.localPosition = new Vector3(1, 0, j);
-            generetedCannon.transform.Rotate(0f, 270f, 0f);
+    //        generetedCannon.transform.localPosition = new Vector3(1, 0, j);
+    //        generetedCannon.transform.Rotate(0f, 270f, 0f);
 
-            cannonSize++;
+    //        cannonSize++;
 
-            if (cannonSize == value)
-            {
-                return;
-            }
-        }
+    //        if (cannonSize == value)
+    //        {
+    //            return;
+    //        }
+    //    }
 
 
 
-    }
+    //}
 
 }
