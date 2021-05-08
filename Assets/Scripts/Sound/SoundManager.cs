@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static bool isMute;
+    public static bool isMute = false;
 
     AudioListener audioListener;
 

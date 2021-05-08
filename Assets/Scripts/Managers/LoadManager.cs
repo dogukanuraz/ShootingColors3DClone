@@ -42,7 +42,7 @@ public class LoadManager : MonoBehaviour
                 {
                     SceneManager.LoadScene(currentScene + 1);
                 }
-                else if (PlayerPrefs.GetInt("currentScene") == 6)
+                else if (PlayerPrefs.GetInt("currentScene") >= 6)
                 {
                     SceneManager.LoadScene(1);
                 }

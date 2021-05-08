@@ -14,7 +14,6 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         cannonBallRB = cannonBall.GetComponent<Rigidbody>();
-        cannonMat = GetComponentInChildren<MeshRenderer>().material;
     }
 
     private void Update()
@@ -28,8 +27,10 @@ public class Shoot : MonoBehaviour
                 if (hit.collider == gameObject.GetComponent<Collider>())
                 {
                     Rigidbody instantiate = Instantiate(cannonBallRB, transform.position, transform.rotation) as Rigidbody;
+                    instantiate.transform.parent = this.transform;
                     instantiate.velocity = transform.TransformDirection(Vector3.forward * speed);
-                    instantiate.GetComponent<MeshRenderer>().material = cannonMat;
+
+                    instantiate.GetComponent<MeshRenderer>().material = GetComponentInChildren<MeshRenderer>().material;
                 }
             }
 
@@ -37,10 +38,5 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        //Rigidbody instantiate = Instantiate(cannonBallRB, transform.position, transform.rotation) as Rigidbody;
-        //instantiate.velocity = transform.TransformDirection(Vector3.forward * speed);
-        //instantiate.GetComponent<MeshRenderer>().material = cannonMat;
-    }
+    
 }
