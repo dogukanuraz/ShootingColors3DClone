@@ -35,12 +35,14 @@ public class UIManager : MonoBehaviour
 
     public void Mute()
     {
+        SoundManager.isMute = true;
         PlayerPrefs.SetInt("muteControl", 1);
         demute.gameObject.SetActive(true);
         mute.gameObject.SetActive(false);
     }
     public void DeMute()
     {
+        SoundManager.isMute = false;
         PlayerPrefs.SetInt("muteControl", 0);
         demute.gameObject.SetActive(false);
         mute.gameObject.SetActive(true);
