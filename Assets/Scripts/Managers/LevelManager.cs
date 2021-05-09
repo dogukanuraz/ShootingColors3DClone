@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//using MoreMountains.NiceVibrations;
 
 public class LevelManager : MonoBehaviour
 {
@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
         }
 
 
-        if (CheckColors() && GameManager.isStarted)
+        if (GameManager.isStarted)
         {
             StartCoroutine(ControlPoint());
         }
@@ -80,7 +80,14 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (CheckColors())
         {
+            //MMVibrationManager.Haptic(HapticTypes.Success);
             gameManager.NextLevel();
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(ControlPoint());
+
         }
 
 

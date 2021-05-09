@@ -20,6 +20,7 @@ public class ExtraUI : MonoBehaviour
 
     public void GenerateLevel()
     {
+        GameManager.isStarted = true;
         levelGenerator.GenerateCube(value + 1);
         //levelGenerator.GenerateCannon(value + 1);
     }
